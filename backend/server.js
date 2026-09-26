@@ -13,7 +13,12 @@ const PORT = process.env.PORT || 5000;
 const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
 app.use(
   cors({
-    origin: [frontendUrl, "http://127.0.0.1:5173", "http://localhost:3000", "http://127.0.0.1:3000"],
+    origin: [
+      frontendUrl,
+      "http://127.0.0.1:5173",
+      "http://localhost:3000",
+      "http://127.0.0.1:3000",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
@@ -33,19 +38,20 @@ app.get("/", (req, res) => {
 });
 
 app.use((req, res) => {
-  res
-    .status(404)
-    .json({
-      success: false,
-      message: `Route ${req.originalUrl} tidak ditemukan`,
-    });
+  res.status(404).json({
+    success: false,
+    message: `Route ${req.originalUrl} tidak ditemukan`,
+  });
 });
 
 app.use((err, req, res, next) => {
   console.error("Error:", err.message);
   res.status(500).json({ success: false, message: "Internal server error" });
 });
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server berjalan di http://localhost:${PORT}`);
+  });
+}
 
-app.listen(PORT, () => {
-  console.log(`Server berjalan di http://localhost:${PORT}`);
-});
+module.exports = app;

@@ -1,0 +1,145 @@
+/* ── GALLERY di PropertyCard (publik) ──────────────────────── */
+.card-gallery {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+  background: #e8e6e0;
+}
+.card-gallery-main {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card-gallery-empty {
+  width: 100%;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0ede6;
+  border-radius: 8px 8px 0 0;
+  color: #999;
+  font-size: 0.85rem;
+}
+.card-gallery-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+.gallery-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s;
+}
+.gallery-dot.active {
+  background: #fff;
+}
+.card-body {
+  padding: 14px 16px 16px;
+}
+
+/* ── THUMBNAIL di tabel admin ──────────────────────────────── */
+.table-thumb {
+  width: 60px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+  border: 1px solid #ddd;
+}
+.table-thumb-empty {
+  width: 60px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0ede6;
+  border-radius: 5px;
+  color: #bbb;
+  font-size: 0.85rem;
+}
+
+/* ── UPLOAD di AdminProperties ─────────────────────────────── */
+.image-uploader {
+  margin-bottom: 18px;
+}
+.image-preview-grid {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.image-thumb-wrap {
+  position: relative;
+  width: 80px;
+  height: 60px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #d0cdc6;
+  background: #f0ede6;
+}
+.image-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.image-remove-btn {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.image-remove-btn:hover {
+  background: #c0392b;
+}
+.upload-btn {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 10px 18px;
+  background: #f0ede6;
+  border: 2px dashed #c0bdb5;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #555;
+  transition: all 0.2s;
+}
+.upload-btn:hover {
+  background: #e8e4dc;
+  border-color: #1a3a5c;
+  color: #1a3a5c;
+}
+.upload-btn.uploading {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.form-hint-inline {
+  font-weight: 400;
+  color: #888;
+  font-size: 0.8rem;
+}

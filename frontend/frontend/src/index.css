@@ -1,0 +1,5 @@
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-family: "Georgia","Times New Roman",serif; background-color: #f5f4f0; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
+#root { min-height: 100vh; }
+h1,h2,h3,h4,h5,h6 { margin: 0; }
+p { margin: 0; }

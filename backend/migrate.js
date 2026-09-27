@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: false,
+  ssl: { rejectUnauthorized: false },
 });
 
 const run = async () => {

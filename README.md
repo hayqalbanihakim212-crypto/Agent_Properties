@@ -12,7 +12,7 @@
 
 > Aplikasi web untuk membantu proses **pencarian properti**, **analisis legalitas**, dan **konsultasi agen** secara cerdas — didukung backend aman dengan autentikasi JWT dan database PostgreSQL.
 
-### 🌐 [Lihat →](https://agent-properties.vercel.app/))
+### 🌐 [Lihat Demo Frontend →](https://agent-properties.vercel.app/) &nbsp;|&nbsp; 🔧 [Backend API →](https://backendproperties-agent.vercel.app/)
 
 </div>
 
@@ -155,16 +155,30 @@ PORT=3000
 
 ## 🚢 Deploy
 
-### Frontend (GitHub Pages)
+### Frontend — Vercel
+
+Live di: [https://agent-properties.vercel.app](https://agent-properties.vercel.app)
+
+Sudah dikonfigurasi via `vercel.json` — semua route diarahkan ke `index.html` untuk mendukung React Router:
+
+```json
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
+```
+
+### Backend — Vercel
+
+Live di: [https://backendproperties-agent.vercel.app](https://backendproperties-agent.vercel.app)
+
+Deploy sebagai serverless function di Vercel. Pastikan environment variables (`DATABASE_URL`, `JWT_SECRET`) sudah diset di dashboard Vercel.
+
+### Frontend (GitHub Pages) — Opsional
 
 ```bash
 cd frontend
 npm run deploy
 ```
-
-### Frontend (Vercel)
-
-Sudah dikonfigurasi via `vercel.json` — semua route diarahkan ke `index.html` untuk mendukung React Router.
 
 ---
 

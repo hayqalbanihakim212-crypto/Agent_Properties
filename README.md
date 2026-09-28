@@ -12,7 +12,7 @@
 
 > Aplikasi web untuk membantu proses **pencarian properti**, **analisis legalitas**, dan **konsultasi agen** secara cerdas — didukung backend aman dengan autentikasi JWT dan database PostgreSQL.
 
-### 🌐 [Lihat Demo Frontend →](https://agent-properties.vercel.app/) &nbsp;|&nbsp; 🔧 [Backend API →](https://backendproperties-agent.vercel.app/)
+### 🌐 [Lihat Frontend →](https://agent-properties.vercel.app/) &nbsp;|&nbsp; 🔧 [Backend API →](https://backendproperties-agent.vercel.app/)
 
 </div>
 

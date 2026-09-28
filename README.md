@@ -89,8 +89,8 @@ Sistem ini menerapkan beberapa lapisan keamanan:
 | Database | PostgreSQL (`pg`) |
 | Auth | JWT + bcryptjs |
 | Security | Helmet, CORS, express-rate-limit |
-| Deploy Frontend | GitHub Pages (`gh-pages`) |
-| Deploy Backend | Node.js server |
+| Deploy Frontend | Vercel (`https://agent-properties.vercel.app/`) |
+| Deploy Backend | Node.js server dalam bentuk Vercel (`https://backendproperties-agent.vercel.app/`) |
 
 ---
 

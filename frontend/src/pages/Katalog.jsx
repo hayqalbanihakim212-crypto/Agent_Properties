@@ -21,7 +21,13 @@ function SkeletonCard() {
   );
 }
 
-export default function Katalog({ properties, loading, onRefresh, onHubungi }) {
+export default function Katalog({
+  properties,
+  loading,
+  onRefresh,
+  onHubungi,
+  onDetail,
+}) {
   const [search, setSearch] = useState("");
   const [filterType, setFilterType] = useState("semua");
 
@@ -29,8 +35,7 @@ export default function Katalog({ properties, loading, onRefresh, onHubungi }) {
     const matchSearch =
       p.title?.toLowerCase().includes(search.toLowerCase()) ||
       p.location?.toLowerCase().includes(search.toLowerCase());
-    const matchType =
-      filterType === "semua" || p.type?.includes(filterType);
+    const matchType = filterType === "semua" || p.type?.includes(filterType);
     return matchSearch && matchType;
   });
 
@@ -89,6 +94,7 @@ export default function Katalog({ properties, loading, onRefresh, onHubungi }) {
               key={item.id}
               item={item}
               onHubungi={onHubungi}
+              onDetail={onDetail}
             />
           ))}
         </div>

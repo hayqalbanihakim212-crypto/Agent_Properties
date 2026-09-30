@@ -1,12 +1,21 @@
 import { useState } from "react";
+import useShare from "../hooks/useShare";
 
-export default function PropertyCard({ item, onHubungi }) {
+export default function PropertyCard({ item, onHubungi, onDetail }) {
   const images = Array.isArray(item.images) ? item.images.filter(Boolean) : [];
   const [activeImg, setActiveImg] = useState(0);
+  const { handleShare, shareStatus } = useShare(item);
+
+  const openDetail = () => onDetail?.(item);
 
   return (
-    <div className="card property-card">
-      {/* Gallery foto */}
+    <div
+      className="card property-card property-card-clickable"
+      onClick={openDetail}
+      role="link"
+      tabIndex={0}
+      onKeyDown={(e) => e.key === "Enter" && openDetail()}
+    >
       {images.length > 0 ? (
         <div className="card-gallery">
           <img
@@ -23,7 +32,10 @@ export default function PropertyCard({ item, onHubungi }) {
                 <button
                   key={i}
                   className={`gallery-dot${i === activeImg ? " active" : ""}`}
-                  onClick={() => setActiveImg(i)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveImg(i);
+                  }}
                   aria-label={`Foto ${i + 1}`}
                 />
               ))}
@@ -47,13 +59,32 @@ export default function PropertyCard({ item, onHubungi }) {
         <p className="card-meta">{item.location}</p>
         {item.owner && <p className="card-meta">{item.owner}</p>}
         {item.description && <p className="card-desc">{item.description}</p>}
+
         <div className="card-footer">
-          <p className="card-contact">{item.contact}</p>
-          {onHubungi && (
-            <button className="btn-hubungi" onClick={() => onHubungi(item)}>
-              Hubungi Agen
+          <div className="card-actions">
+            <button
+              className="btn-share"
+              onClick={handleShare}
+              aria-label="Bagikan properti"
+            >
+              {shareStatus === "copied"
+                ? "Tersalin"
+                : shareStatus === "error"
+                  ? "Gagal"
+                  : "Bagikan"}
             </button>
-          )}
+            {onHubungi && (
+              <button
+                className="btn-hubungi"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onHubungi(item);
+                }}
+              >
+                Hubungi Agen
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>
